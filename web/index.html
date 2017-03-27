@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Waldo coding excercise</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="waldo.js"></script>
+
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="waldo.css">
+</head>
+
+<body>
+    <div class="content center">
+        <label>Select a photo: </label>
+        <select id="combobox">
+          <option value="">Select one...</option>
+        </select>
+
+        <div id="image-loading">Loading image...</div>
+        <div class="image-wrapper">
+            <img id="image" src="" />
+            <div class="caption center">
+              Size: <span id="file-size"></span>
+            </div>
+        </div>
+
+        <div id="error-div"></div>
+
+        <div id="data">
+            <table id="meta-data" class="stripe hover cell-border compact"></table>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

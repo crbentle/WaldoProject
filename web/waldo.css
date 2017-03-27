@@ -1,0 +1,52 @@
+select {
+    margin: 20px 0;
+}
+
+.key-col {
+    width: 200px;
+}
+
+.val-col {
+    max-height: 100px;
+    overflow: auto;
+}
+
+.center {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.content {
+    max-width: 800px;
+}
+
+.image-wrapper {
+    text-align: center;
+    display: none;
+}
+
+.caption {
+    width: 300px;
+    background-color: #ececec;
+    padding: 5 0;
+}
+
+#image-loading {
+    display: none;
+    text-align: center;
+    height: 250px;
+}
+
+#image {
+    width: 300px;
+}
+
+#data {
+    width: 800px;
+    padding-top: 20px;
+}
+
+#error-div {
+    color: red;
+    text-align: center;
+}
