@@ -17,6 +17,22 @@ import com.waldo.recruiting.beans.Photos;
  * @author Chris Bentley
  */
 public class StorePhotoJsonDAO implements StorePhotoDAO {
+	
+	private String fileName = "photos.json";
+	
+	/**
+	 * Constructor that changes the output file name
+	 * @param fileName The name of the .json file to create
+	 */
+	public StorePhotoJsonDAO( String fileName ) {
+		this.fileName = fileName;
+	}
+	
+	/**
+	 * Default contstructor
+	 */
+	public StorePhotoJsonDAO( ) {}
+	
 
 	/* (non-Javadoc)
 	 * @see com.waldo.recruiting.data.dao.StorePhotoDAO#storePhotoList(java.util.List)
@@ -35,7 +51,7 @@ public class StorePhotoJsonDAO implements StorePhotoDAO {
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
-			mapper.writeValue(new File("photos.json"), photos);
+			mapper.writeValue(new File(fileName), photos);
 		} catch ( JsonGenerationException e ) {
 			// Throw the exception to be handled by the Main class
 			throw e;

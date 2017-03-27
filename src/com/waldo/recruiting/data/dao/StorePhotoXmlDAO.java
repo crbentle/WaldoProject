@@ -16,6 +16,22 @@ import com.waldo.recruiting.beans.Photos;
  * @author Chris Bentley
  */
 public class StorePhotoXmlDAO implements StorePhotoDAO {
+	
+	private String fileName = "photos.xml";
+	
+	/**
+	 * Constructor that changes the output file name
+	 * @param fileName The name of the .json file to create
+	 */
+	public StorePhotoXmlDAO( String fileName ) {
+		this.fileName = fileName;
+	}
+	
+	/**
+	 * Default contstructor
+	 */
+	public StorePhotoXmlDAO( ) {}
+	
 
 	/* (non-Javadoc)
 	 * @see com.waldo.recruiting.data.dao.StorePhotoDAO#storePhotoList(java.util.List)
@@ -38,7 +54,7 @@ public class StorePhotoXmlDAO implements StorePhotoDAO {
 			jaxbMarshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
 
 			// Marshal the employees list in file
-			jaxbMarshaller.marshal( photos, new File( "photos.xml" ) );
+			jaxbMarshaller.marshal( photos, new File( fileName ) );
 		} catch ( JAXBException e ) {
 			e.printStackTrace();
 		}

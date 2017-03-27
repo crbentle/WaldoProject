@@ -43,7 +43,7 @@ public class RetrievePhotoAmazonS3DAO implements RetrievePhotoDAO {
 	 * 
 	 * @return A Java object containing the photo index details
 	 */
-	private ListBucketResult parseXML() throws Exception {
+	protected ListBucketResult parseXML() throws Exception {
 		ListBucketResult result = null;
 		try {
 			URL url = new URL( S3_URL );
@@ -78,7 +78,7 @@ public class RetrievePhotoAmazonS3DAO implements RetrievePhotoDAO {
 	 * @param xmlResult The index of photos from the Amazon S3 store
 	 * @return The list of generic Photo objects
 	 */
-	private List<Photo> createPhotoList( ListBucketResult xmlResult ) {
+	protected List<Photo> createPhotoList( ListBucketResult xmlResult ) {
 		List<Photo> photoList = new ArrayList<Photo>();
 		if ( xmlResult != null && xmlResult.getContents() != null
 				&& xmlResult.getContents().length > 0 ) {
@@ -114,7 +114,7 @@ public class RetrievePhotoAmazonS3DAO implements RetrievePhotoDAO {
 	 * 
 	 * @param photoList The list of Photos for which to extract data
 	 */
-	private void extractMetaData( List<Photo> photoList ) {
+	protected void extractMetaData( List<Photo> photoList ) {
 
 		for ( Photo photo : photoList ) {
 			String photoUrl = S3_URL + "/" + photo.getKey();

@@ -24,12 +24,14 @@ public class PhotoDAOFactory {
 	 */
 	public static RetrievePhotoDAO getRetrievePhotoDAO( RETRIEVE_DAO dao ) {
 		RetrievePhotoDAO photoDAO = null;
-		switch ( dao ) {
-			case AmazonA3:
-				photoDAO = new RetrievePhotoAmazonS3DAO();
-				break;
-			default:
-				// Do nothing. Will return a null DAO
+		if ( dao != null ) {
+			switch ( dao ) {
+				case AmazonA3:
+					photoDAO = new RetrievePhotoAmazonS3DAO();
+					break;
+				default:
+					// Do nothing. Will return a null DAO
+			}
 		}
 
 		return photoDAO;
@@ -43,16 +45,17 @@ public class PhotoDAOFactory {
 	 */
 	public static StorePhotoDAO getStorePhotoDAO( STORE_DAO dao ) {
 		StorePhotoDAO storeDAO = null;
-		switch ( dao ) {
-			case JSON:
-				storeDAO = new StorePhotoJsonDAO();
-				break;
-			case XML:
-				storeDAO = new StorePhotoXmlDAO();
-				break;
-			default:
-				// Do nothing. Will return a null DAO
-
+		if ( dao != null ) {
+			switch ( dao ) {
+				case JSON:
+					storeDAO = new StorePhotoJsonDAO();
+					break;
+				case XML:
+					storeDAO = new StorePhotoXmlDAO();
+					break;
+				default:
+					// Do nothing. Will return a null DAO
+			}
 		}
 		
 		return storeDAO;
